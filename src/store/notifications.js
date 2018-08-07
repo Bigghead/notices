@@ -14,7 +14,7 @@ export const generateNotice = ( noticeType, message  ) => dispatch => {
     dispatch( { type, payload: message } );
 
     // === To clear the notification === //
-    setTimeout( () => dispatch( { type: 'RESET_NOTIFICATION' } ), 5000 );
+    // setTimeout( () => dispatch( { type: 'RESET_NOTIFICATION' } ), 5000 );
 }
 
 

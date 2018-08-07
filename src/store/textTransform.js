@@ -17,7 +17,8 @@ const transformText = (input, mode = LOWERCASE) => dispatch => {
     mode = mode.toLowerCase()
     const endpoint = mode === UPPERCASE ? UPPERCASE_ENDPOINT : LOWERCASE_ENDPOINT
 
-    dispatch({ type: TRANSFORM_VALUE_LOAD })
+    dispatch({ type: TRANSFORM_VALUE_LOAD });
+    dispatch({ type: 'RESET_NOTIFICATION'})
     axios.post(endpoint, { input })
         .then(res => {
             dispatch(generateNotice('success', `Successfully loaded ${mode}`));

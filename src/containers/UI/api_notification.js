@@ -12,22 +12,33 @@ function mapStateToProps( { textTransform, notifications } ) {
     };
 }
 
-
-const renderNotice = ( success, error) => (
-    <div id="toast" className={ success || error ? 'show': ''}>
-        <div id="img">Icon</div>
-        <div id="desc">{ 'Loading...'}</div>
-    </div>
-);
+const successStyle = { 'backgroundColor': 'lightgreen' };
+const errorStyle   = { 'backgroundColor': '#cb2d3e' };
 
 
 class API_Notification extends Component {
+
+    renderNotice = ( success, error) => {
+        const { mode } = this.props;
+        return (
+            <div id="toast" 
+                 className={ success || error ? 'show' : '' } 
+                 style={ success ? successStyle : errorStyle }>
+                <div id="img">{ success ? 'OK' : 'Error:' }</div>
+                <div id="desc">
+                    { success ? `Successfully loaded ${this.props.mode}` : `Error loading ${mode}` }
+                </div>
+            </div>
+        )
+    };
+
+
     render() {
         const { currentLetterCase, success, error, isLoading } = this.props;
         return (
             <div>
                 { isLoading && 'Loading' }
-                { renderNotice( success, error )}
+                { this.renderNotice( success, error )}
             </div>
             
         );

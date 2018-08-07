@@ -8,7 +8,7 @@ export default class LowerCase extends Component {
             <div className="LowerCase-container">
                 <h2>Let's lowercase some stuff</h2>
                 <TextTransformer mode="lower" />
-                <Notification></Notification>
+                <Notification mode='lowercase' />
             </div>
         )
     }

@@ -8,7 +8,6 @@
     color: #fff;
     text-align: center;
     border-radius: 2px;
-
     position: fixed;
     z-index: 1;
     left: 0;right:0;
@@ -16,28 +15,30 @@
     font-size: 17px;
     white-space: nowrap;
 }
+
+.success {
+    background-color: lightgreen;
+}
+
+.error {
+    background-color: #cb2d3e;
+}
+
 #toast #img{
 	width: 50px;
 	height: 50px;
-    
     float: left;
-    
     padding-top: 16px;
     padding-bottom: 16px;
-    
     box-sizing: border-box;
-
-    
     background-color: #111;
     color: #fff;
 }
-#toast #desc{
 
-    
+
+#toast #desc{ 
     color: #fff;
-   
-    padding: 16px;
-    
+    padding: 16px;   
     overflow: hidden;
 	white-space: nowrap;
 }
@@ -46,6 +47,14 @@
     visibility: visible;
     -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+.success {
+    background-color: lightgreen;
+}
+
+.error {
+    background-color: #cb2d3e;
 }
 
 @-webkit-keyframes fadein {
