@@ -43,10 +43,21 @@
 	white-space: nowrap;
 }
 
+#toast #desc .dismiss_button {
+    background-color: lightgrey;
+    border-radius: 50%;
+    margin-left: 0.2rem;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 #toast.show {
     visibility: visible;
-    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
 }
 
 .success {
@@ -56,6 +67,7 @@
 .error {
     background-color: #cb2d3e;
 }
+
 
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;} 
