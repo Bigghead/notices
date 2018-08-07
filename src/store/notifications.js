@@ -11,21 +11,27 @@ const initialState = {
 };
 
 
+export const generateNotice = ( noticeType, message  ) => dispatch => {
+    const type = noticeType === 'success' ? API_SUCCESS : API_ERROR;
+    dispatch( { type, payload: message } );
+}
+
+
 export default function notifications( state = initialState, action ) {
 
     switch( action.type ) {
 
         case UPPERCASE: 
-            return { ...this.state, currentLetterCase: UPPERCASE }
+            return { state, currentLetterCase: UPPERCASE }
 
         case LOWERCASE:
-            return { ...this.state, currentLetterCase: LOWERCASE }
+            return { state, currentLetterCase: LOWERCASE }
 
         case API_SUCCESS: 
-            return { ...this.state, success: 'OK' }
+            return { state, success: true }
 
         case API_ERROR:
-            return { ...this.state, error: action.payload }
+            return { state, error: action.payload }
 
         default: return state;
     }
