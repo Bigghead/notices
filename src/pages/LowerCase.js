@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextTransformer from '../containers/TextTransformer'
-import Notification from '../containers/UI/api_notification';
+import Notification from '../containers/UI/Notification';
 
 export default class LowerCase extends Component {
     render() {

@@ -1,16 +1,16 @@
-import React, { Component, Ref } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { RESET_NOTIFICATION } from '../../store/notifications'
 
-import './api-notification.css';
+import './Notification.css';
 
 
-function mapStateToProps( { textTransform, notifications } ) {
+function mapStateToProps( { textTransform: { isLoading }, notifications: { success, error } } ) {
     return {
-        success   : notifications.success,
-        error     : notifications.error,
-        isLoading : textTransform.isLoading
+        success,
+        error,
+        isLoading
     };
 }
 
@@ -41,7 +41,9 @@ class Notification extends Component {
                  id="toast" 
                  className={ success || error ? 'show' : '' } 
                  style={ success ? successStyle : errorStyle }>
+
                 <div id="img">{ success ? 'OK' : 'Error:' }</div>
+
                 <div id="desc">
                     { success ? `Successfully loaded ${this.props.mode}` : `Error loading ${mode}` }
                     <button className="dismiss_button" onClick={ this.dismissNotice }>X</button>

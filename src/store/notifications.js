@@ -1,20 +1,17 @@
-const API_SUCCESS        = 'API_SUCCESS';
-const API_ERROR          = 'API_ERROR';
-const RESET_NOTIFICATION = 'RESET_NOTIFICATION';
+export const API_SUCCESS        = 'API_SUCCESS';
+export const API_ERROR          = 'API_ERROR';
+export const RESET_NOTIFICATION = 'RESET_NOTIFICATION';
 
 
 const initialState = {
-    success          : null,
-    error            : null
+    success : null,
+    error   : null
 };
 
 
 export const generateNotice = ( noticeType, message  ) => dispatch => {
     const type = noticeType === 'success' ? API_SUCCESS : API_ERROR;
     dispatch( { type, payload: message } );
-
-    // === To clear the notification === //
-    // setTimeout( () => dispatch( { type: 'RESET_NOTIFICATION' } ), 5000 );
 }
 
 
