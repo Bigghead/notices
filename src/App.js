@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import LowerCase from './pages/LowerCase'
 import UpperCase from './pages/UpperCase'
 
+import Notification from './containers/UI/Notification'
+
 class App extends Component {
   render() {
     return (
@@ -22,6 +24,7 @@ class App extends Component {
               <Route path="/uppercase" component={UpperCase} />
             </Switch>
           </div>
+          <Notification></Notification>
         </div>
       </Router>
     );
