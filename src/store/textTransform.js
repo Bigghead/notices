@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RESET_NOTIFICATION, generateNotice } from './notifications';
+import { RESET_NOTIFICATION, SUCCESS, ERROR, generateNotice } from './notifications';
 
 
 const TRANSFORM_VALUE_LOAD = 'TRANSFORM_VALUE_LOAD'
@@ -21,11 +21,11 @@ const transformText = (input, mode = LOWERCASE) => dispatch => {
     dispatch({ type: RESET_NOTIFICATION })
     axios.post(endpoint, { input })
         .then(res => {
-            dispatch(generateNotice('success', `Successfully loaded ${mode}`));
+            dispatch(generateNotice(SUCCESS, `Successfully loaded ${mode}`));
             dispatch({ type: TRANSFORM_VALUE_SUCCESS, payload: res.data });
         })
         .catch(err => {
-            dispatch(generateNotice('error', err.response.data.message));
+            dispatch(generateNotice(ERROR, err.response.data.message));
             dispatch({ type: TRANSFORM_VALUE_ERROR, payload: err });
         })
 }

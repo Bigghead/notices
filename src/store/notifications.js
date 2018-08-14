@@ -1,32 +1,32 @@
-export const API_SUCCESS        = 'API_SUCCESS';
-export const API_ERROR          = 'API_ERROR';
+export const SUCCESS  = 'SUCCESS';
+export const ERROR    = 'ERROR';
 export const RESET_NOTIFICATION = 'RESET_NOTIFICATION';
 
 
 const initialState = {
-    success : null,
-    error   : null
+    type   : '',
+    message: '',
+    open   : false
 };
 
 
-export const generateNotice = ( noticeType, message  ) => dispatch => {
-    const type = noticeType === 'success' ? API_SUCCESS : API_ERROR;
+export const generateNotice = ( type, message  ) => dispatch => {
     dispatch( { type, payload: message } );
 }
 
 
-export default function notifications( state = initialState, action ) {
+export default function notifications( state = initialState, { type, payload } ) {
 
-    switch( action.type ){
+    switch( type ){
 
         case RESET_NOTIFICATION:
-            return { success: null, error: null }
+            return initialState;
 
-        case API_SUCCESS: 
-            return { state, success: true }
+        case SUCCESS: 
+            return { ...state, open: true, type, message: payload };
 
-        case API_ERROR:
-            return { state, error: action.payload }
+        case ERROR:
+            return { ...state, open: true, type, message: payload };
 
         default: return state;
     }
